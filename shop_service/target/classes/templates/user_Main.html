@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>User Functions</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p th:text="${'Willkommen ' + customer.userName + '! (' + customer.firstName + ' ' + customer.lastName + ')'}"> </p>
+	<table>
+		<tr>
+    		<td>Cart 🛒</td>
+    		<td><a th:href="@{/service_main/shop_service/user/cart/(customerid=${customer.customerId})}"> [→] </a></td>
+    	</tr>
+		<tr>
+    		<td>Catalog ▤</td>
+    		<td><a th:href="@{/service_main/shop_service/user/catalog/(customerid=${customer.customerId})}"> [→] </a></td>
+    	</tr>
+		<tr>
+    		<td>Orders 💰</td>
+    		<td><a th:href="@{/service_main/shop_service/user/orders/(customerid=${customer.customerId})}"> [→] </a></td>
+    	</tr>    	
+		<tr>
+    		<td><a href="/service_main/shop_service/"> [←] </a></td>
+    	</tr>
+    </table>
+</body>
+</html>

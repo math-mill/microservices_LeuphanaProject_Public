@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Article List</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<table>
+		<tr th:each="article: ${articles}">
+    		<td th:text="${article.articleName}" />
+    		<td><a th:href="@{/service_main/article_service/article/{id}(id=${article.articleId})}"> [☰] </a></td>
+    		<td><a th:href="@{/service_main/article_service/article/action/(action=edit,articleid=${article.articleId})}"> [✎] </a>
+    		<td><a th:href="@{/service_main/article_service/article/action/(action=delete,articleid=${article.articleId})}"> [🗑] </a>
+    	</tr>
+    	<tr>
+    		<td><a href="/service_main/article_service/article/action?action=create"> [🗎] </a></td>
+    		<td><a href="/service_main/article_service"> [←] </a>
+    	</tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Edit Article</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<form action=/service_main/shop_service/admin/catalog/action/edit/perform>
+	<label for="articleid">articleId</label>
+	<input type="text" id="articleid" name="articleid" th:value="${article.articleId}" readonly>
+	<label for="articlename"> articleName: </label>
+	<input type="text" id="articlename" name="articlename" th:value="${article.articleName}"><br><br>
+	<label for="articlemanufactor"> articleManufactor: </label>
+	<input type="text" id="articlemanufactor" name="articlemanufactor" th:value="${article.manufactor}"><br><br>
+	<label for="articleprice"> articlePrice: </label>
+	<input type="number" id="articleprice" name="articleprice" step="0.01" th:value="${article.price}"><br><br>
+	<select name="articletype">
+		<option value="BOOK">BOOK</option>
+		<option value="CD">CD</option>
+		<option value="BLURAY">BLURAY</option>
+	</select>
+	<label for="articlestockqty"> articleStockQuantity: </label>
+	<input type="number" id="articlestockqty" name="articlestockqty" th:value="${article.stockQuantity}"><br><br>
+	<input type="submit" value="Save">
+</form>
+</body>
+</html>

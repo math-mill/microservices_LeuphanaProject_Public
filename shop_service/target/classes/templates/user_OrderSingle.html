@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Order Details</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<p th:text="'Order from: ' + ${order.orderDate}"></p>
+<body>
+	<table>
+		<th:block th:each="orderItem: ${orderItems}">
+		<th:block th:each="article: ${articles}" th:if="${orderItem.articleId} == ${article.articleId}">
+			<tr>
+				<td>Article: </td>
+    			<td th:text="${article.articleName} + ' (' + ${orderItem.quantity} + 'x)'" />
+    			<td th:text="${article.manufactor}"/>
+    			<td th:with="result=${article.price} * ${orderItem.quantity}" th:text="${article.price} + ' x ' + ${orderItem.quantity} + ' = ' + ${result}"/>
+    		</tr>
+    	</th:block>
+    	</th:block>
+
+    	<tr>
+    		<td><a th:href="@{/service_main/shop_service/user/orders/(customerid=${customerid})}"> [←] </a>
+    	</tr>
+    </table>
+</body>
+</html>

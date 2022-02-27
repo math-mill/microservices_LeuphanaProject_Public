@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Catalog (User View)</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form th:action="@{/service_main/shop_service/action/e_catalog/perform}" th:object="${articles}" method="get">
+	<table>
+		<tr th:each="article: ${articles}">
+			<td th:text="${article.articleName}"></td>
+			<td th:text="${article.price}"></td>
+			<td th:text="${article.stockQuantity}"></td>
+			<td><a th:href="@{/service_main/shop_service/user/catalog/articledetail(customerid=${customerId},articleid=${article.articleId})}"> [☰] </a></td>
+			<td><a th:href="@{/service_main/shop_service/user/catalog/addtocart(customerid=${customerId},articleid=${article.articleId})}"> [↪🛒] </a></td>
+		</tr>
+		<tr>
+			<td><a th:href="@{/service_main/shop_service/user(customerid=${customerId})}"> [←] </a>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

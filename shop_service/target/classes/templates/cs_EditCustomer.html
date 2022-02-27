@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Edit Customer</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<form action=/service_main/customer_service/customer/action/edit/perform>
+
+	<label for="customerid">UUID:</label>
+	<input type="text" id="customerid" name="customerid" th:value="${customer.customerId}" readonly>
+	
+	<label for="firstname"> Firstname: </label>
+	<input type="text" id="firstname" name="firstname" th:value="${customer.firstName}"><br><br>
+	
+	<label for="lastname">Lastname: </label>
+	<input type="text" id="lastname" name="lastname" th:value="${customer.lastName}"><br><br>
+	
+	<label for="username">Username: </label>
+	<input type="text" id="username" name="username" th:value="${customer.userName}"><br><br>
+	
+	<label>Address:</label>
+	
+	<label for="street">Street: </label>
+	<input type="text" id="street" name="street" th:value="${address.street}"><br><br>
+	
+	<label for="number">Number: </label>
+	<input type="text" id="number" name="number" th:value="${address.number}"><br><br>
+	
+	<label for="postalCode">Postalcode: </label>
+	<input type="text" id="postalCode" name="postalCode" th:value="${address.postalCode}"><br><br>
+	
+	<label for="city">City: </label>
+	<input type="text" id="city" name="city" th:value="${address.city}"><br><br>
+
+	<input type="submit" value="Save">
+</form>
+</body>
+</html>

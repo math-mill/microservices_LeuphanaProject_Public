@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Delete Customer?</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<table>
+		<tr>
+			<td>Firstname: </td>
+    		<td th:text="${customer.firstName}" />
+    	</tr>
+		<tr>
+			<td>Lastname: </td>
+    		<td th:text="${customer.lastName}" />
+    	</tr>
+		<tr>
+			<td>Username: </td>
+    		<td th:text="${customer.userName}" />
+    	</tr>
+    </table>
+</body>
+<form action=/service_main/customer_service/customer/action/delete/perform>
+	<label for="customerid">UUID:</label>
+	<input type="text" id="customerid" name="customerid" th:value="${customer.customerId}" readonly>
+	<input type="submit" value="Delete">
+</form>
+</html>

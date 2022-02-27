@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Delete Article?</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<table>
+		<tr>
+			<td>Name: </td>
+    		<td th:text="${article.articleName}" />
+    	</tr>
+		<tr>
+			<td>Manufactor: </td>
+    		<td th:text="${article.manufactor}" />
+    	</tr>
+		<tr>
+			<td>Price: </td>
+    		<td th:text="${article.price}" />
+    	</tr>
+		<tr>
+			<td>Type: </td>
+    		<td th:text="${article.articleType}" />
+    	</tr>
+		<tr>
+			<td>Stock Quantity: </td>
+    		<td th:text="${article.stockQuantity}" />
+    	</tr>
+    </table>
+</body>
+<form action=/service_main/shop_service/admin/catalog/action/delete/perform>
+	<label for="articleid">UUID:</label>
+	<input type="text" id="articleid" name="articleid" th:value="${article.articleId}" readonly>
+	<input type="submit" value="Delete">
+</form>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Customer Details</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<table>
+		<tr>
+			<td>Firstname: </td>
+    		<td th:text="${customer.firstName}" />
+    	</tr>
+    	<tr>
+			<td>Lastname: </td>
+    		<td th:text="${customer.lastName}" />
+    	</tr>
+    	<tr>
+			<td>Username: </td>
+    		<td th:text="${customer.userName}" />
+    	</tr>
+    	<tr>
+			<td>Addresse: </td>
+    		<td th:text="${address.street}" />
+    		<td th:text="${address.number}" />
+    	</tr>
+    	<tr>
+    		<td th:text="${address.postalCode}" />
+    		<td th:text="${address.city}" />
+    	</tr>
+    	<tr>
+    		<td><a th:href="@{/service_main/customer_service/customer/action/(action=edit,customerid=${customer.customerId})}"> [✎] </a>
+    		<td><a th:href="@{/service_main/customer_service/customer/action/(action=delete,customerid=${customer.customerId})}"> [🗑] </a>
+    		<td><a href="/service_main/customer_service/customer"> [←] </a>
+    	</tr>
+    </table>
+</body>
+</html>

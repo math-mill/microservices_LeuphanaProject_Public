@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Catalog (Admin View)</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form th:action="@{/service_main/shop_service/action/e_catalog/perform}" th:object="${articles}" method="get">
+	<table>
+		<tr th:each="article: ${articlesInCatalog}">
+			<td>
+				<label >
+					<input type="checkbox" name="allarticleids" checked
+						   th:text="${article.articleName}"
+						   th:value="${article.articleId}"/>
+				</label>
+			</td>
+			<td><a th:href="@{/service_main/shop_service/admin/catalog/{id}(id=${article.articleId})}"> [☰] </a></td>
+    		<td><a th:href="@{/service_main/shop_service/admin/catalog/action/(action=edit,articleid=${article.articleId})}"> [✎] </a>
+    		<td><a th:href="@{/service_main/shop_service/admin/catalog/action/(action=delete,articleid=${article.articleId})}"> [🗑] (from DB) </a>
+		</tr>
+		<tr th:each="article: ${articles}">
+			<td>
+				<label >
+					<input type="checkbox" name="allarticleids"
+						   th:text="${article.articleName}"
+						   th:value="${article.articleId}"/>
+				</label>
+			</td>
+			<td><a th:href="@{/service_main/shop_service/admin/catalog/{id}(id=${article.articleId})}"> [☰] </a></td>
+    		<td><a th:href="@{/service_main/shop_service/admin/catalog/action/(action=edit,articleid=${article.articleId})}"> [✎] </a>
+    		<td><a th:href="@{/service_main/shop_service/admin/catalog/action/(action=delete,articleid=${article.articleId})}"> [🗑] (from DB) </a>
+		</tr>
+		<tr><td><input type="submit" value="Edit"></td></tr>
+		<tr>
+			<td><a href="/service_main/shop_service/admin/catalog/action/?action=createarticle"> [🗎] </a></td>
+			<td><a href="/service_main/shop_service/"> [←] </a>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

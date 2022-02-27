@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Your Cart</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	
+	<table style="border:1px solid black">
+		<tr>
+			<th style="border:1px solid black">Article</th>
+			<th style="border:1px solid black">#</th>
+			<th style="border:1px solid black">€ UP</th>
+			<th style="border:1px solid black">€ ∑</th>
+		</tr>
+		<th:block th:each="article: ${articles}">
+		<th:block th:each="cartItem: ${cartItems}" th:if="${cartItem.articleId} == ${article.articleId}">
+		<tr>
+			<td th:text="${article.articleName}" style="border:1px solid black"></td>
+			<td th:text="${cartItem.quantity}" style="border:1px solid black"></td>
+			<td th:text="${article.price}" style="border:1px solid black"></td>
+			<td th:with="result=${article.price} * ${cartItem.quantity}" th:text="${result}" style="border:1px solid black"></td>
+			<td><a th:href="@{/service_main/shop_service/user/cart/articledetail(customerid=${customerid},articleid=${article.articleId})}"> [☰] </a></td>
+			<td><a th:href="@{/service_main/shop_service/user/cart/addtocart(customerid=${customerid},articleid=${article.articleId})}"> [↪🛒] </a></td>
+			<td><a th:href="@{/service_main/shop_service/user/cart/removefromcart(customerid=${customerid},articleid=${article.articleId})}"> [↩🛒] </a></td>
+		</tr>
+		</th:block>
+		</th:block>
+		<tr>
+			<td/><td/><td>Total Price:</td><td th:text="${totalprice}"></td>
+		</tr>
+	</table>
+	<table>
+		<tr>
+    		<td><a th:href="@{/service_main/shop_service/user(customerid=${customerid})}"> [←] </a></td>
+    		<td><a th:href="@{/service_main/shop_service/user/cart/checkout(customerid=${customerid})}"> [💰] </a></td>
+    	</tr>
+    </table>
+</body>
+</html>

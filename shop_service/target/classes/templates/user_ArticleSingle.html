@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Article Details (User)</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<table>
+		<tr>
+			<td>Name: </td>
+    		<td th:text="${article.articleName}" />
+    	</tr>
+    	<tr>
+			<td>Manufactor: </td>
+    		<td th:text="${article.manufactor}" />
+    	</tr>
+    	<tr>
+			<td>Price: </td>
+    		<td th:text="${article.price}" />
+    	</tr>
+    	<tr>
+			<td>Type: </td>
+    		<td th:text="${article.articleType}" />
+    	</tr>
+    	<tr>
+			<td>Stock: </td>
+    		<td th:text="${article.stockQuantity}" />
+    	</tr>
+    	<tr>
+    		<td><a th:href="@{/service_main/shop_service/user/{origin}/addtocart(customerid=${customerid},articleid=${article.articleId},origin=${origin})}"> [🛒] </a></td>
+    		<td><a th:href="@{/service_main/shop_service/user/{origin}/(customerid=${customerid},origin=${origin})}"> [←] </a>
+    	</tr>
+    </table>
+</body>
+</html>

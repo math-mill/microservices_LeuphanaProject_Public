@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Your Cart is empty :(</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<table>
+		<tr>
+    		<td><a th:href="@{/service_main/shop_service/user(customerid=${customerid})}"> [←] </a></td>
+    	</tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Shop-Service</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<table>
+		<tr>
+			<td>Create new Article</td>
+			<td><a href="/service_main/article_service/article/action?action=create"> [🗎] </a></td>
+		</tr>
+	</table>
+	<hr>
+	<table>
+		<tr>
+    		<td>Create Customer with Cart</td>
+    		<td><a href="/service_main/shop_service/action?action=c_cwc"> [🗎] </a></td>
+  			<td>(could be something like User Registration)</td>
+  		</tr>
+    </table>
+    <hr>
+    <table>
+		<tr>
+    		<td>Create Catalog</td>
+    		<td><a href="/service_main/shop_service/action?action=c_catalog"> [🗎] </a></td>
+			<td>(with functional CheckBox-List!!!)</td>
+		</tr>
+    	<tr>
+    		<td>Catalog Admin View</td>
+    		<td><a href="/service_main/shop_service/admin/catalog"> [→] </a></td>
+    	</tr>
+    </table>
+    <hr>
+    <form th:action="@{/service_main/shop_service/user}" method="GET">
+    	<table>
+			<tr>
+    			<td>do Stuff as User</td>
+     			<td>
+    				<select id="customerid" name="customerid">
+    					<option th:each="customer: ${customers}" th:value="${customer.customerId}" th:text="${customer.userName} + ' (' + ${customer.firstName} + ' ' + ${customer.lastName} + ')'">
+    				</select>
+    				<button type="submit">"Login"</button>
+    			</td>
+    		</tr>
+    	</table>
+   	</form>
+    <hr>
+    <table>
+		<tr>
+    		<td><a href="/service_main/"> [←] </a></td>
+    	</tr>
+    </table>
+</body>
+</html>

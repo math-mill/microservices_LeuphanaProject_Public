@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Your Orders</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	
+	<table style="border:1px solid black">
+		<tr>
+			<th style="border:1px solid black">Date</th>
+			<th style="border:1px solid black">Order ID</th>
+		</tr>
+		<th:block th:each="order: ${orders}">
+		<tr>
+			<td th:text="${order.orderDate}" style="border:1px solid black"></td>
+			<td th:text="${order.orderId}" style="border:1px solid black"></td>
+			<td><a th:href="@{/service_main/shop_service/user/orders/orderdetail(customerid=${customerid},orderid=${order.orderId})}"> [☰] </a></td>
+		</tr>
+		</th:block>
+		<tr>
+    		<td><a th:href="@{/service_main/shop_service/user(customerid=${customerid})}"> [←] </a></td>
+    	</tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "custom.feignClient.articleURL",
+    "type": "java.lang.String",
+    "description": "A description for 'custom.feignClient.articleURL'"
+  },
+  {
+    "name": "custom.feignClient.customerURL",
+    "type": "java.lang.String",
+    "description": "A description for 'custom.feignClient.customerURL'"
+  },
+  {
+    "name": "custom.feignClient.orderURL",
+    "type": "java.lang.String",
+    "description": "A description for 'custom.feignClient.orderURL'"
+  }
+]}
